@@ -1,0 +1,30 @@
+{
+    "plants" : { 
+        "ponytail" : {
+            "Common Name": "Ponytail Palm",
+            "Scientific Name" : "idk",
+            "Light Level": "Bright, indirect light",
+            "Water Level": "Water sparingly",
+            "Description" : "She is a queen."
+        },
+
+        "rattlesnake" : {
+            "Common Name": "Rattlesnake Plant",
+            "Scientific Name" : "idk",
+            "Description" : "This plant is a pain."
+        },
+
+        "frost" : {
+            "Common Name": "Frost Peperomia",
+            "Scientific Name" : "idk",
+            "Description" : "This plant is great."
+        },
+
+        "ripple" : {
+            "Common Name": "Ripple Peperomia",
+            "Scientific Name" : "idk",
+            "Description" : "This plant is great."
+        }
+    
+    }
+}

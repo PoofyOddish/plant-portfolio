@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    color: black;
+}
+
+body {
+    background-color: #70e684;
+}
+
+#mainNav {
+    background-color: #2C993F;
+    border-radius: 10px 10px 10px 10px;
+    color: black;
+}
+
+#plantnav {
+    background-color: springgreen;
+    border-radius: 0px 0px 30px 0px;
+}
+
+#home {
+    display: block;
+}
+
+#plants {
+    display: none;
+}
+
+
+#plantBanner {
+    background-color: #ff96ab;
+    text-align: center;
+}

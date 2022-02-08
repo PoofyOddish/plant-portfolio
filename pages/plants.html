@@ -1,38 +1,124 @@
-<div class="row row-cols-1 row-cols-md-2 g-4">
-    <div class="col">
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
+<br />
+<div id='plantBanner'>Click on any plant to learn more</div>
+<br />
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <div class="col-sm-6">
+      <div class="card h-100">
+        <img src="http://www.plants.jordan-serna.com.s3.amazonaws.com/assets/coming_soon.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <h5 class="card-title">Ponytail Palm</h5>
+          <p class="card-text">Looking for a low-maintenance plant with tons of character? Look no further!</p>
+          <a href="#" id="ponytail" data-bs-toggle="modal" data-bs-target="#exampleModal" class="stretched-link"></a>
+          <div class="card-footer">
+            <small class="text-muted">Tags: None yet</small> 
+          </div>
         </div>
       </div>
     </div>
-    <div class="col">
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
+    <div class="col-sm-6">
+      <div class="card h-100">
+        <img src="http://www.plants.jordan-serna.com.s3.amazonaws.com/assets/coming_soon.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <h5 class="card-title">Rattlesnake Plant</h5>
+          <p class="card-text">While this plant can be a bit of a drama queen, bow down to this unique prayer plant!</p>
+          <a href="#" id="rattlesnake" data-bs-toggle="modal" data-bs-target="#exampleModal" class="stretched-link"></a>
+          <div class="card-footer">
+            <small class="text-muted">Tags: None yet</small> 
+          </div>
         </div>
       </div>
     </div>
-    <div class="col">
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
+    <div class="col-sm-6">
+      <div class="card h-100">
+        <img src="http://www.plants.jordan-serna.com.s3.amazonaws.com/assets/coming_soon.jpg"  class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+          <h5 class="card-title">Frost Peperomia</h5>
+          <p class="card-text">Stay frosty!</p>
+          <a href="#" id="frost" data-bs-toggle="modal" data-bs-target="#exampleModal" class="stretched-link"></a>
+          <div class="card-footer">
+            <small class="text-muted">Tags: None yet</small> 
+          </div>
         </div>
       </div>
     </div>
-    <div class="col">
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
+    <div class="col-sm-6">
+      <div class="card h-100">
+        <img src="http://www.plants.jordan-serna.com.s3.amazonaws.com/assets/coming_soon.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <h5 class="card-title">Ripple Peperomia</h5>
+          <p class="card-text"> I identify as this plant.</p>
+          <a href="#" id="ripple" data-bs-toggle="modal" data-bs-target="#exampleModal" class="stretched-link"></a>
+          <div class="card-footer">
+            <small class="text-muted">Tags: None yet</small> 
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+<!-- Button trigger modal -->
+<!--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>-->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5 id='plantName' class="modal-title"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id='plantScientific'>Scientific Name: </div>
+          <div id='lightLevel'>Preferred light level: </div>
+          <div id='waterLevel'>Preferred water level: </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+              
+    $( "a.stretched-link" ).on( "click", function() {
+        
+        var getID = $( this ).prop('id').toString();
+
+        $.getJSON( "../pages/plants.json", function( json ) {
+            console.log(json['plants'][getID]["Common Name"]);
+
+            $( "#plantName" ).replaceWith( "<h5 id='plantName'>"+json['plants'][getID]["Common Name"]+"</h5>" );
+            $( "#plantScientific" ).replaceWith( "<div id='plantScientific'> Scientific Name: "+json['plants'][getID]["Scientific Name"]+"</div>" );
+
+            var lightCheck = json['plants'][getID]["Light Level"];
+
+            if(lightCheck == 'Bright, indirect light') 
+                var lightLevelText = "<i class='fas fa-cloud-sun'></i> Bright, indirect light</div>";
+            else if(lightCheck == 'Bright, direct light')
+                var lightLevelText = "<i class='fas fa-sun'></i> Bright, direct light</div>";
+            else 
+                var lightLevelText = "<i class='fas fa-dizzy'></i> Undefined</div>";
+
+            $( "#lightLevel" ).replaceWith("<div id='lightLevel'>Preferred light level: "+lightLevelText+"</div>");
+    
+
+            var waterCheck = json['plants'][getID]["Water Level"];
+
+            if(waterCheck == 'Loves water') 
+                var waterLevelText = "<i class='fas fa-water'></i> Loves water</div>";
+            else if(waterCheck == 'Water sparingly')
+                var waterLevelText = "<i class='fas fa-tint-slash'></i> Water sparingly</div>";
+            else 
+                var waterLevelText = "<i class='fas fa-dizzy'></i> Undefined</div>";
+
+            $( "#waterLevel" ).replaceWith("<div id='waterLevel'>Preferred water level: "+waterLevelText+"</div>");
+
+        });
+
+    });
+
+  </script>
